@@ -245,11 +245,11 @@ const UserDetails = () => {
   return (
     <div>
       <h1>User Details</h1>
-      <p><strong>Name:</strong> {user.name}</p>
-      <p><strong>Username:</strong> {user.username}</p>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Phone:</strong> {user.phone}</p>
-      <p><strong>Website:</strong> {user.website}</p>
+      <p><strong>Name:</strong> {users.name}</p>
+      <p><strong>Username:</strong> {users.username}</p>
+      <p><strong>Email:</strong> {users.email}</p>
+      <p><strong>Phone:</strong> {users.phone}</p>
+      <p><strong>Website:</strong> {users.website}</p>
     </div>
   );
 }
