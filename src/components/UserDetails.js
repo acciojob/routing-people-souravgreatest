@@ -232,16 +232,28 @@ const users = [
       },
     },
   ];
-const UserDetails = () => {
-    const { id } = useParams();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const selected = users.find((u) => u.id === parseInt(id));
-    setTimeout(() => {setLoading(false)}, 1000); // simulate loading
-  }, [id]);
-
-  if (loading){console.log("loading..."); return <div>Loading...</div>;}
+  const UserDetails = () => {
+    const { id } = useParams(); // id is a string!
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const userId = parseInt(id, 10); // Convert to number
+      const foundUser = users.find(u => u.id === userId);
+      
+      setTimeout(() => {
+        setUser(foundUser);
+        setLoading(false);
+      }, 100); // keep delay short for tests
+    }, [id]);
+  
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+  
+    if (!user) {
+      return <div>User not found</div>;
+    }
   return (
     <div>
       <h1>User Details</h1>
